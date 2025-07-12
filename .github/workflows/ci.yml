@@ -24,8 +24,10 @@ jobs:
           node-version: 20
           cache: pnpm
 
-      - name: Install pnpm
-        run: npm install -g pnpm@9
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -33,14 +35,11 @@ jobs:
       - name: Run linter
         run: pnpm run lint
 
-      - name: Install Vercel CLI
-        run: pnpm add -g vercel@latest
-
       - name: Pull Vercel config
-        run: vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+        run: pnpm dlx vercel@latest pull --yes --environment=production --token=$VERCEL_TOKEN
 
       - name: Build for production
-        run: vercel build --prod --token=$VERCEL_TOKEN
+        run: pnpm dlx vercel@latest build --prod --token=$VERCEL_TOKEN
 
       - name: Deploy to Vercel (production)
-        run: vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+        run: pnpm dlx vercel@latest deploy --prebuilt --prod --token=$VERCEL_TOKEN
