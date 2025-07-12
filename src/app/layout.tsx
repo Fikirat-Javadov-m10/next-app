@@ -40,8 +40,6 @@ export default function RootLayout({
             {children}
           </main>
         </ThemeProvider>
-
-        {children}
       </body>
     </html>
   );

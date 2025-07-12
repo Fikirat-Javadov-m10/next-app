@@ -8,3 +8,15 @@ export type MiningPool = {
   rejectRate: number;
   status: Status;
 };
+
+type SortableMiningPool = Pick<
+  MiningPool,
+  "activeWorkers" | "hashrateTHs" | "rejectRate"
+>;
+
+type Order = "asc" | "desc";
+
+export type SortSearchParams = {
+  sort?: keyof SortableMiningPool;
+  order?: Order;
+};
