@@ -1,0 +1,161 @@
+import { MiningPool, MiningPoolDetiled } from "@/features/mining-pools/types";
+
+const miningPools: MiningPool[] = [
+  {
+    id: "pool-1",
+    name: "US East Pool",
+    hashrateTHs: 830.5,
+    activeWorkers: 1240,
+    rejectRate: 0.012,
+    status: "online",
+  },
+  {
+    id: "pool-2",
+    name: "EU Central Pool",
+    hashrateTHs: 460.3,
+    activeWorkers: 876,
+    rejectRate: 0.045,
+    status: "degraded",
+  },
+  {
+    id: "pool-3",
+    name: "Asia Pacific Pool",
+    hashrateTHs: 920.7,
+    activeWorkers: 1532,
+    rejectRate: 0.017,
+    status: "online",
+  },
+  {
+    id: "pool-4",
+    name: "South America Pool",
+    hashrateTHs: 375.9,
+    activeWorkers: 702,
+    rejectRate: 0.038,
+    status: "degraded",
+  },
+  {
+    id: "pool-5",
+    name: "Africa North Pool",
+    hashrateTHs: 255.4,
+    activeWorkers: 590,
+    rejectRate: 0.062,
+    status: "offline",
+  },
+  {
+    id: "pool-6",
+    name: "Canada West Pool",
+    hashrateTHs: 688.1,
+    activeWorkers: 1015,
+    rejectRate: 0.025,
+    status: "online",
+  },
+  {
+    id: "pool-7",
+    name: "India South Pool",
+    hashrateTHs: 543.2,
+    activeWorkers: 980,
+    rejectRate: 0.035,
+    status: "degraded",
+  },
+  {
+    id: "pool-8",
+    name: "China Central Pool",
+    hashrateTHs: 1002.8,
+    activeWorkers: 1820,
+    rejectRate: 0.008,
+    status: "online",
+  },
+  {
+    id: "pool-9",
+    name: "Russia East Pool",
+    hashrateTHs: 784.5,
+    activeWorkers: 1395,
+    rejectRate: 0.021,
+    status: "online",
+  },
+  {
+    id: "pool-10",
+    name: "Australia Pool",
+    hashrateTHs: 603.7,
+    activeWorkers: 1134,
+    rejectRate: 0.029,
+    status: "degraded",
+  },
+];
+
+const mininPoolsDetails: MiningPoolDetiled[] = [
+  {
+    parentId: "pool-1",
+    last24hRevenueBTC: 0.035,
+    uptimePercent: 99.82,
+    location: "Ashburn, VA",
+    feePercent: 1.0,
+  },
+  {
+    parentId: "pool-2",
+    last24hRevenueBTC: 0.027,
+    uptimePercent: 98.74,
+    location: "Frankfurt, Germany",
+    feePercent: 1.2,
+  },
+  {
+    parentId: "pool-3",
+    last24hRevenueBTC: 0.039,
+    uptimePercent: 99.91,
+    location: "Singapore",
+    feePercent: 0.9,
+  },
+  {
+    parentId: "pool-4",
+    last24hRevenueBTC: 0.021,
+    uptimePercent: 97.65,
+    location: "São Paulo, Brazil",
+    feePercent: 1.5,
+  },
+  {
+    parentId: "pool-5",
+    last24hRevenueBTC: 0.015,
+    uptimePercent: 94.32,
+    location: "Cairo, Egypt",
+    feePercent: 1.8,
+  },
+  {
+    parentId: "pool-6",
+    last24hRevenueBTC: 0.032,
+    uptimePercent: 99.33,
+    location: "Vancouver, Canada",
+    feePercent: 1.0,
+  },
+  {
+    parentId: "pool-7",
+    last24hRevenueBTC: 0.028,
+    uptimePercent: 98.91,
+    location: "Hyderabad, India",
+    feePercent: 1.3,
+  },
+  {
+    parentId: "pool-8",
+    last24hRevenueBTC: 0.042,
+    uptimePercent: 99.95,
+    location: "Chengdu, China",
+    feePercent: 0.8,
+  },
+  {
+    parentId: "pool-9",
+    last24hRevenueBTC: 0.036,
+    uptimePercent: 99.41,
+    location: "Irkutsk, Russia",
+    feePercent: 1.1,
+  },
+  {
+    parentId: "pool-10",
+    last24hRevenueBTC: 0.03,
+    uptimePercent: 98.65,
+    location: "Sydney, Australia",
+    feePercent: 1.4,
+  },
+];
+
+export const getMininPools = () => Promise.resolve<MiningPool[]>(miningPools);
+export const getMininPoolDetails = () =>
+  Promise.resolve<MiningPoolDetiled[]>(mininPoolsDetails);

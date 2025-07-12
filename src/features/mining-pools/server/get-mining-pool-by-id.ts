@@ -1,15 +1,13 @@
 "use server";
 
-import { http } from "@/lib/axios";
-import { MiningPoolDetiled } from "@/features/mining-pools/types";
+import { getMininPoolDetails } from "@/lib/data";
 
+//Это как бы сервер экшинс, но можно и сделать через api routes как /mining-pools/:id
 export const getMiningPoolById = async (id: string) => {
   try {
-    const { data: allDetailedMainingPools } = await http<{
-      data: MiningPoolDetiled[];
-    }>("/mining_pools_details_data.json");
+    const allDetailedMainingPools = await getMininPoolDetails();
 
-    const detailedMainingPool = allDetailedMainingPools.data.find(
+    const detailedMainingPool = allDetailedMainingPools.find(
       (dmp) => dmp.parentId === id
     );
 
