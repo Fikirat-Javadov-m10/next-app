@@ -17,6 +17,7 @@ export const getMiningPools = async ({
 
     return { success: true, data: result };
   } catch (error) {
+    console.log(error);
     return { success: false, message: "Something went wrong" };
   }
 };

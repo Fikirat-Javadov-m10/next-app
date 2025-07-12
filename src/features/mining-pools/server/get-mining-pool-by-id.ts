@@ -21,6 +21,7 @@ export const getMiningPoolById = async (id: string) => {
 
     return { success: true, data: detailedMainingPool };
   } catch (error) {
+    console.log(error);
     return { success: false, message: "Something went wrong" };
   }
 };
